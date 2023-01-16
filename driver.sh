@@ -11,7 +11,7 @@ cfs -d HexLiner_NIT_HarmonicAcousticSimulation > HexLiner_NIT_HarmonicAcousticSi
 rm *.cdb
 rm -rf results_hdf5
 cp history/* .
-rm history
+rm -rf history
 
 python3 calcSimResults.py
 
