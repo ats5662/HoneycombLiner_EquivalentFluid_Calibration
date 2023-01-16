@@ -1,0 +1,57 @@
+environment
+  tabular_data
+    tabular_data_file = 'results.dat'
+	
+method
+  bayes_calibration dream
+    chain_samples = 1000000
+    chains = 4
+    seed = 123
+    standardized_space
+    export_chain_points_file = 'chainPoints.dat'
+    emulator gaussian_process surfpack build_samples 80
+    probability_levels 
+      0.05  0.1 
+      0.05  0.1 
+      0.05  0.1 
+      0.05  0.1 
+      0.05  0.1 
+      0.05  0.1 
+      0.05  0.1 
+      0.05  0.1 
+      
+variables
+  triangular_uncertain = 8
+    descriptors     'x1'    'x2'    'x3'    'x4'     'x5'     'x6'     'x7'    'x8'
+    upper_bounds    0.5     10       1      10       3000     0        2500    0
+    lower_bounds    -1.5    0       -2      0        0        -1.5e4   0       -1e4
+    modes           -0.01   2       -0.25   3.5      1000     -5000    400     -3500 
+    initial_point   -0.01   2       -0.25   3.5      1000     -5000    400     -3500 
+            	 
+interface
+  asynchronous evaluation_concurrency = 8
+  fork
+    analysis_driver = 'driver.sh'
+      work_directory
+        named 'workDirectory/iteration'
+      copy_files
+        'driver.sh'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/calcSimResults.py'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/calcAbsorptionCoefficient.py'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/materialInputDeck.template'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/harmonicAcousticSimInputDeck.template'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_PLA_1_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_PLA_2_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_PLA_3_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_TPU_1_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_TPU_2_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_TPU_3_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/HexLinerMeshMeterTet4.cdb'
+	directory_tag
+	directory_save
+	file_save
+	  
+responses
+  calibration_terms = 16
+  no_gradients
+  no_hessians
