@@ -3,29 +3,13 @@ environment
     tabular_data_file = 'results.dat'
 	
 method
-  bayes_calibration dream
-    chain_samples = 1000000
-    chains = 4
-    seed = 123
-    standardized_space
-    export_chain_points_file = 'chainPoints.dat'
-    emulator gaussian_process surfpack build_samples 80
-    probability_levels 
-      0.05  0.1 
-      0.05  0.1 
-      0.05  0.1 
-      0.05  0.1 
-      0.05  0.1 
-      0.05  0.1 
-      0.05  0.1 
-      0.05  0.1 
+  nl2sol
+  max_function_evaluations = 500
+  speculative
       
 variables
-  triangular_uncertain = 8
+  continuous_design = 8
     descriptors     'x1'    'x2'    'x3'    'x4'     'x5'     'x6'     'x7'    'x8'
-    upper_bounds    0.5     10       1      10       3000     0        2500    0
-    lower_bounds    -1.5    0       -2      0        0        -1.5e4   0       -1e4
-    modes           -0.01   2       -0.25   3.5      1000     -5000    400     -3500 
     initial_point   -0.01   2       -0.25   3.5      1000     -5000    400     -3500 
             	 
 interface
@@ -53,5 +37,5 @@ interface
 	  
 responses
   calibration_terms = 16
-  no_gradients
+  numerical_gradients
   no_hessians

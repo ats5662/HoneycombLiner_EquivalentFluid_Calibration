@@ -6,7 +6,7 @@
 
 	<fileFormats>
 		<input>
-			<cdb fileName='../HexLinerMeshMeterTet4.cdb'/>
+			<cdb fileName='HexLinerMeshMeterTet4.cdb'/>
 		</input>
 		<output>
 			<hdf5 extension="cfs"/>

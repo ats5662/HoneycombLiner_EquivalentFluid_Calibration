@@ -40,8 +40,8 @@
 			</density>
 			<densityComplex>
 				<linear>
-					<real>{x1}*log(f)+{x2}</real>
-					<imag>{x3}*log(f)+{x4}</imag> 
+					<real>4.7809893472e-01*log(f)+-1.5242483425e+00</real>
+					<imag>2.0148210369e+00*log(f)+-1.2879639593e+01</imag> 
 				</linear>
 			</densityComplex>
 			<compressionModulus>
@@ -51,8 +51,8 @@
 			</compressionModulus>
 			<compressionModulusComplex>
 				<linear>
-					<real>{x5}*log(f)+{x6}</real>
-					<imag>{x7}*log(f)+{x8}</imag>
+					<real>1.2793401464e+03*log(f)+-7.3782045582e+03</real>
+					<imag>9.5036321534e+02*log(f)+-6.9212465053e+03</imag>
 				</linear>
 			</compressionModulusComplex>
 		</acoustic>
