@@ -5,3 +5,5 @@
 *.in eol=lf
 *.dat eol=lf
 *.out eol=lf
+*.log eol=lf
+*.rst eol=lf
