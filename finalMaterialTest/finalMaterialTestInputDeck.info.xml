@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 
-<cfsInfo status="finished" infoWriteCounter="55" infoRejectCounter="0">
+<cfsInfo status="finished" infoWriteCounter="65" infoRejectCounter="0">
   <summary>
-    <timer wall-clock="3m 20.03s" wall="200.027" cpu="1419.63" calls="1" max_nesting="1"/>
+    <timer wall-clock="4m 0.065s" wall="240.065" cpu="1688.27" calls="1" max_nesting="1"/>
     <!-- memory in MB-->
-    <memory final="1356.1" peak="1356.1"/>
+    <memory final="1330.3" peak="1356.5"/>
   </summary>
   <header id="">
-    <environment started="2023-Jan-18 13:58:45" host="DESKTOP-TBHLNOT" estimatedEnd="2023-Jan-18 14:02:05" remainingTime="0" timePerStep="0"/>
+    <environment started="2023-Jan-20 15:26:50" host="DESKTOP-TBHLNOT" estimatedEnd="2023-Jan-20 15:30:50" remainingTime="0" timePerStep="0"/>
     <progOpts problem="finalMaterialTestInputDeck" parameterFile="/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/finalMaterialTest/finalMaterialTestInputDeck.xml" schemaPath="/home/ats5662/cfs/share/xml" meshFile="" logConfFile="" detailed="yes">
       <cfs version="22.11" name="Welcome World" build="Release" git_commit="010ce127fc8cf4b0d56b9a72c3073c4c1f2cd310" git_branch="master" exe="cfs"/>
       <openmp CFS_NUM_THREADS="8" MKL_NUM_THREADS="8" OMP_NUM_THREADS="8"/>
@@ -41,7 +41,7 @@
       </domain>
       <sequenceStep index="1" usage="startValue">
         <analysis>
-          <harmonic numFreq="50" startFreq="377" stopFreq="3400" sampling="linear"/>
+          <harmonic numFreq="60" startFreq="377" stopFreq="3400" sampling="linear"/>
         </analysis>
         <pdeList>
           <acoustic feSpaceFormulation="default" flowFormulation="standard" formulation="acouPressure" order="1" pdeFormulation="default" subType="standard" systemId="default" timeStepAlpha="0.0" type="lagrange" updatedLagrange="no">
@@ -72,7 +72,7 @@
     </cfsSimulation>
     <domain hull_volume="-1" structure_volume="0.00090568">
       <grids>
-        <timer wall-clock="9.036s" wall="9.036" cpu="10.6718" calls="1" max_nesting="1"/>
+        <timer wall-clock="6.844s" wall="6.844" cpu="7.11754" calls="1" max_nesting="1"/>
         <grid gridId="default" dimensions="3" elements="401342" nodes="76646"/>
       </grids>
       <coordinateSystems>
@@ -90,17 +90,17 @@
         <nodes name="mic2" count="1" coord="(-0.0013564,0.000217927,0.172741)"/>
       </namedNodes>
       <namedElements/>
-      <globalMathParser dt="0" f="3400" step="50" t="0" t0="0"/>
+      <globalMathParser dt="0" f="3400" step="60" t="0" t0="0"/>
     </domain>
     <results>
-      <timer wall-clock="4.63s" wall="4.63" cpu="18.617" calls="400" max_nesting="1"/>
+      <timer wall-clock="5.49s" wall="5.49" cpu="5.5256" calls="480" max_nesting="1"/>
     </results>
   </header>
   <sequenceStep sequence="1">
     <harmonic>
-      <header unit="Hz" sampling="linear" start="377" end="3400" numFreq="50"/>
+      <header unit="Hz" sampling="linear" start="377" end="3400" numFreq="60"/>
       <init_harmonic>
-        <timer wall-clock="4.607s" wall="4.607" cpu="9.62768" calls="1" max_nesting="1"/>
+        <timer wall-clock="2.955s" wall="2.955" cpu="4.62282" calls="1" max_nesting="1"/>
       </init_harmonic>
     </harmonic>
     <PDE>
@@ -112,20 +112,6 @@
           <region name="element set 3" damping="none"/>
           <integrators>
             <matrixBiLinearForms>
-              <bilinearForm integrator="MassIntegrator" type="BBInt" complex="yes" region="element set 1">
-                <coef type="CoefFunctionConst" value="(7.20877e-06,0)"/>
-                <row pde="acoustic" functionId="0" result="acouPressure"/>
-                <column pde="acoustic" functionId="0" result="acouPressure"/>
-                <destination feMatrix="mass" feMatrixMapped="system" feSecondMatrix="no_fe_matrix" feSecondMatrixFac="0.0  "/>
-                <attributes entryType="RealPart" counterPart="no" symmetric="yes" solutionDependent="no" updatedGeo="no"/>
-              </bilinearForm>
-              <bilinearForm integrator="MassIntegrator" type="BBInt" complex="yes" region="element set 3">
-                <coef type="CoefFunctionConst" value="(7.20877e-06,0)"/>
-                <row pde="acoustic" functionId="0" result="acouPressure"/>
-                <column pde="acoustic" functionId="0" result="acouPressure"/>
-                <destination feMatrix="mass" feMatrixMapped="system" feSecondMatrix="no_fe_matrix" feSecondMatrixFac="0.0  "/>
-                <attributes entryType="RealPart" counterPart="no" symmetric="yes" solutionDependent="no" updatedGeo="no"/>
-              </bilinearForm>
               <bilinearForm integrator="LaplaceIntegrator" type="BBInt" complex="yes" BOp="GradientOperator" region="element set 3">
                 <coef type="CoefFunctionConst" value="(0.833333,0)"/>
                 <row pde="acoustic" functionId="0" result="acouPressure"/>
@@ -147,15 +133,22 @@
                 <destination feMatrix="mass" feMatrixMapped="system" feSecondMatrix="no_fe_matrix" feSecondMatrixFac="0.0  "/>
                 <attributes entryType="RealPart" counterPart="no" symmetric="yes" solutionDependent="no" updatedGeo="no"/>
               </bilinearForm>
+              <bilinearForm integrator="MassIntegrator" type="BBInt" complex="yes" region="element set 3">
+                <coef type="CoefFunctionConst" value="(7.20877e-06,0)"/>
+                <row pde="acoustic" functionId="0" result="acouPressure"/>
+                <column pde="acoustic" functionId="0" result="acouPressure"/>
+                <destination feMatrix="mass" feMatrixMapped="system" feSecondMatrix="no_fe_matrix" feSecondMatrixFac="0.0  "/>
+                <attributes entryType="RealPart" counterPart="no" symmetric="yes" solutionDependent="no" updatedGeo="no"/>
+              </bilinearForm>
               <bilinearForm integrator="LaplaceIntegrator" type="BBInt" complex="yes" BOp="GradientOperator" region="element set 2">
-                <coef type="CoefFunctionTimeFreq<complex>" value="((((  (1)  *  (9.3636889884e-01*log(f)+-4.8630447358e+00)  )+(  (0.0)  *  (1.1294350471e+00*log(f)+-6.5551220797e+00)  ))/(  ((  (9.3636889884e-01*log(f)+-4.8630447358e+00)  *  (9.3636889884e-01*log(f)+-4.8630447358e+00)  ) + (  (1.1294350471e+00*log(f)+-6.5551220797e+00)  *  (1.1294350471e+00*log(f)+-6.5551220797e+00)  ))  )), (((  (0.0)  *  (9.3636889884e-01*log(f)+-4.8630447358e+00)  )-(  (1)  *  (1.1294350471e+00*log(f)+-6.5551220797e+00)  )) / (  ((  (9.3636889884e-01*log(f)+-4.8630447358e+00)  *  (9.3636889884e-01*log(f)+-4.8630447358e+00)  ) + (  (1.1294350471e+00*log(f)+-6.5551220797e+00)  *  (1.1294350471e+00*log(f)+-6.5551220797e+00)  ))  )) )"/>
+                <coef type="CoefFunctionTimeFreq<complex>" value="((((  (1)  *  (9.3156273491e-01*log(f)+-4.8325419083e+00)  )+(  (0.0)  *  (1.2949511106e+00*log(f)+-7.7193900418e+00)  ))/(  ((  (9.3156273491e-01*log(f)+-4.8325419083e+00)  *  (9.3156273491e-01*log(f)+-4.8325419083e+00)  ) + (  (1.2949511106e+00*log(f)+-7.7193900418e+00)  *  (1.2949511106e+00*log(f)+-7.7193900418e+00)  ))  )), (((  (0.0)  *  (9.3156273491e-01*log(f)+-4.8325419083e+00)  )-(  (1)  *  (1.2949511106e+00*log(f)+-7.7193900418e+00)  )) / (  ((  (9.3156273491e-01*log(f)+-4.8325419083e+00)  *  (9.3156273491e-01*log(f)+-4.8325419083e+00)  ) + (  (1.2949511106e+00*log(f)+-7.7193900418e+00)  *  (1.2949511106e+00*log(f)+-7.7193900418e+00)  ))  )) )"/>
                 <row pde="acoustic" functionId="0" result="acouPressure"/>
                 <column pde="acoustic" functionId="0" result="acouPressure"/>
                 <destination feMatrix="stiffness" feMatrixMapped="system" feSecondMatrix="no_fe_matrix" feSecondMatrixFac="0.0  "/>
                 <attributes entryType="RealPart" counterPart="no" symmetric="yes" solutionDependent="no" updatedGeo="no"/>
               </bilinearForm>
-              <bilinearForm integrator="MassIntegrator" type="BBInt" complex="yes" region="element set 2">
-                <coef type="CoefFunctionTimeFreq<complex>" value="((((  (1)  *  (1.0148625705e+03*log(f)+-5.4830118409e+03)  )+(  (0.0)  *  (7.9096285535e+02*log(f)+-5.9123934043e+03)  ))/(  ((  (1.0148625705e+03*log(f)+-5.4830118409e+03)  *  (1.0148625705e+03*log(f)+-5.4830118409e+03)  ) + (  (7.9096285535e+02*log(f)+-5.9123934043e+03)  *  (7.9096285535e+02*log(f)+-5.9123934043e+03)  ))  )), (((  (0.0)  *  (1.0148625705e+03*log(f)+-5.4830118409e+03)  )-(  (1)  *  (7.9096285535e+02*log(f)+-5.9123934043e+03)  )) / (  ((  (1.0148625705e+03*log(f)+-5.4830118409e+03)  *  (1.0148625705e+03*log(f)+-5.4830118409e+03)  ) + (  (7.9096285535e+02*log(f)+-5.9123934043e+03)  *  (7.9096285535e+02*log(f)+-5.9123934043e+03)  ))  )) )"/>
+              <bilinearForm integrator="MassIntegrator" type="BBInt" complex="yes" region="element set 1">
+                <coef type="CoefFunctionConst" value="(7.20877e-06,0)"/>
                 <row pde="acoustic" functionId="0" result="acouPressure"/>
                 <column pde="acoustic" functionId="0" result="acouPressure"/>
                 <destination feMatrix="mass" feMatrixMapped="system" feSecondMatrix="no_fe_matrix" feSecondMatrixFac="0.0  "/>
@@ -166,6 +159,13 @@
                 <row pde="acoustic" functionId="0" result="acouPressure"/>
                 <column pde="acoustic" functionId="0" result="acouPressure"/>
                 <destination feMatrix="stiffness" feMatrixMapped="system" feSecondMatrix="no_fe_matrix" feSecondMatrixFac="0.0  "/>
+                <attributes entryType="RealPart" counterPart="no" symmetric="yes" solutionDependent="no" updatedGeo="no"/>
+              </bilinearForm>
+              <bilinearForm integrator="MassIntegrator" type="BBInt" complex="yes" region="element set 2">
+                <coef type="CoefFunctionTimeFreq<complex>" value="((((  (1)  *  (1.0214609574e+03*log(f)+-5.5752005794e+03)  )+(  (0.0)  *  (8.4016704331e+02*log(f)+-6.2747607643e+03)  ))/(  ((  (1.0214609574e+03*log(f)+-5.5752005794e+03)  *  (1.0214609574e+03*log(f)+-5.5752005794e+03)  ) + (  (8.4016704331e+02*log(f)+-6.2747607643e+03)  *  (8.4016704331e+02*log(f)+-6.2747607643e+03)  ))  )), (((  (0.0)  *  (1.0214609574e+03*log(f)+-5.5752005794e+03)  )-(  (1)  *  (8.4016704331e+02*log(f)+-6.2747607643e+03)  )) / (  ((  (1.0214609574e+03*log(f)+-5.5752005794e+03)  *  (1.0214609574e+03*log(f)+-5.5752005794e+03)  ) + (  (8.4016704331e+02*log(f)+-6.2747607643e+03)  *  (8.4016704331e+02*log(f)+-6.2747607643e+03)  ))  )) )"/>
+                <row pde="acoustic" functionId="0" result="acouPressure"/>
+                <column pde="acoustic" functionId="0" result="acouPressure"/>
+                <destination feMatrix="mass" feMatrixMapped="system" feSecondMatrix="no_fe_matrix" feSecondMatrixFac="0.0  "/>
                 <attributes entryType="RealPart" counterPart="no" symmetric="yes" solutionDependent="no" updatedGeo="no"/>
               </bilinearForm>
             </matrixBiLinearForms>
@@ -204,8 +204,8 @@
             <region name="element set 2"/>
           </regionList>
           <property name="Acoustic_Bulk_Modulus" value="138720"/>
-          <property name="Acoustic_Bulk_Modulus_Complex" value="(1.0148625705e+03*log(f)+-5.4830118409e+03, 7.9096285535e+02*log(f)+-5.9123934043e+03 )"/>
-          <property name="Acoustic_Density_Complex" value="(9.3636889884e-01*log(f)+-4.8630447358e+00, 1.1294350471e+00*log(f)+-6.5551220797e+00 )"/>
+          <property name="Acoustic_Bulk_Modulus_Complex" value="(1.0214609574e+03*log(f)+-5.5752005794e+03, 8.4016704331e+02*log(f)+-6.2747607643e+03 )"/>
+          <property name="Acoustic_Density_Complex" value="(9.3156273491e-01*log(f)+-4.8325419083e+00, 1.2949511106e+00*log(f)+-7.7193900418e+00 )"/>
           <property name="Acoustic_Sound_Speed" value="340"/>
           <property name="Density" value="1.2"/>
         </material>
@@ -228,26 +228,6 @@
           <inhomDirichletBC/>
         </feFunctions>
         <exemplaryLocalMatrix>
-          <tensor form="LaplaceIntegrator" region="element set 1" element="1">
-            <matrix dim1="4" dim2="4">
-              <complex>
-                (1.503521e-04,0.000000e+00) (1.842392e-05,0.000000e+00) (-3.590465e-05,0.000000e+00) (-1.328714e-04,0.000000e+00)
-                (1.842392e-05,0.000000e+00) (2.147582e-04,0.000000e+00) (-9.492388e-05,0.000000e+00) (-1.382583e-04,0.000000e+00)
-                (-3.590465e-05,0.000000e+00) (-9.492388e-05,0.000000e+00) (1.988201e-04,0.000000e+00) (-6.799156e-05,0.000000e+00)
-                (-1.328714e-04,0.000000e+00) (-1.382583e-04,0.000000e+00) (-6.799156e-05,0.000000e+00) (3.391212e-04,0.000000e+00)
-              </complex>
-            </matrix>
-          </tensor>
-          <tensor form="MassIntegrator" region="element set 1" element="1">
-            <matrix dim1="4" dim2="4">
-              <complex>
-                (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00)
-                (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00)
-                (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00)
-                (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00)
-              </complex>
-            </matrix>
-          </tensor>
           <tensor form="LaplaceIntegrator" region="element set 4" element="393090">
             <matrix dim1="4" dim2="4">
               <complex>
@@ -288,13 +268,33 @@
               </complex>
             </matrix>
           </tensor>
+          <tensor form="LaplaceIntegrator" region="element set 1" element="1">
+            <matrix dim1="4" dim2="4">
+              <complex>
+                (1.503521e-04,0.000000e+00) (1.842392e-05,0.000000e+00) (-3.590465e-05,0.000000e+00) (-1.328714e-04,0.000000e+00)
+                (1.842392e-05,0.000000e+00) (2.147582e-04,0.000000e+00) (-9.492388e-05,0.000000e+00) (-1.382583e-04,0.000000e+00)
+                (-3.590465e-05,0.000000e+00) (-9.492388e-05,0.000000e+00) (1.988201e-04,0.000000e+00) (-6.799156e-05,0.000000e+00)
+                (-1.328714e-04,0.000000e+00) (-1.382583e-04,0.000000e+00) (-6.799156e-05,0.000000e+00) (3.391212e-04,0.000000e+00)
+              </complex>
+            </matrix>
+          </tensor>
+          <tensor form="MassIntegrator" region="element set 1" element="1">
+            <matrix dim1="4" dim2="4">
+              <complex>
+                (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00)
+                (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00)
+                (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00)
+                (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00) (0.000000e+00,0.000000e+00)
+              </complex>
+            </matrix>
+          </tensor>
           <tensor form="LaplaceIntegrator" region="element set 2" element="94673">
             <matrix dim1="4" dim2="4">
               <complex>
-                (3.178136e-04,-6.660359e-05) (-2.523795e-04,5.289070e-05) (-4.193880e-05,8.789036e-06) (-2.349528e-05,4.923861e-06)
-                (-2.523795e-04,5.289070e-05) (2.819969e-04,-5.909757e-05) (6.121863e-06,-1.282947e-06) (-3.573931e-05,7.489820e-06)
-                (-4.193880e-05,8.789036e-06) (6.121863e-06,-1.282947e-06) (4.806060e-05,-1.007197e-05) (-1.224366e-05,2.565882e-06)
-                (-2.349528e-05,4.923861e-06) (-3.573931e-05,7.489820e-06) (-1.224366e-05,2.565882e-06) (7.147825e-05,-1.497956e-05)
+                (3.298592e-04,1.779426e-05) (-2.619451e-04,-1.413063e-05) (-4.352835e-05,-2.348137e-06) (-2.438579e-05,-1.315491e-06)
+                (-2.619451e-04,-1.413063e-05) (2.926851e-04,1.578890e-05) (6.353892e-06,3.427607e-07) (-3.709389e-05,-2.001030e-06)
+                (-4.352835e-05,-2.348137e-06) (6.353892e-06,3.427607e-07) (4.988217e-05,2.690894e-06) (-1.270772e-05,-6.855179e-07)
+                (-2.438579e-05,-1.315491e-06) (-3.709389e-05,-2.001030e-06) (-1.270772e-05,-6.855179e-07) (7.418739e-05,4.002039e-06)
               </complex>
             </matrix>
           </tensor>
@@ -335,211 +335,251 @@
           <pardiso hermitean="no" symStruct="no" symmetric="yes" posDef="no" pardiso_matrix="6" solver="direct">
             <summary>
               <setup>
-                <timer label="setup_pardiso" wall-clock="22.37s" wall="22.37" cpu="120.243" calls="50" max_nesting="1"/>
+                <timer label="setup_pardiso" wall-clock="23.14s" wall="23.139" cpu="84.6473" calls="60" max_nesting="1"/>
               </setup>
               <solve>
-                <timer label="solve_pardiso" wall-clock="1.124s" wall="1.124" cpu="4.5828" calls="50" max_nesting="1"/>
+                <timer label="solve_pardiso" wall-clock="1.295s" wall="1.295" cpu="5.30373" calls="60" max_nesting="1"/>
               </solve>
             </summary>
             <process>
               <call number="0">
-                <symbfact cpu="2.5006" wall="0.959" peakMem="50457" permanentMem="45444"/>
-                <numfact cpu="2.3873" wall="0.612" peakMem="213144"/>
+                <symbfact cpu="0.7813" wall="0.66" peakMem="50457" permanentMem="45444"/>
+                <numfact cpu="1.5341" wall="0.427" peakMem="213144"/>
               </call>
               <call number="1">
-                <numfact cpu="2.8117" wall="0.575" peakMem="213144"/>
+                <numfact cpu="1.2472" wall="0.335" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="3.0076" wall="0.627" peakMem="213144"/>
+                <numfact cpu="1.388" wall="0.375" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.315" wall="0.429" peakMem="213144"/>
+                <numfact cpu="1.4433" wall="0.389" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.4453" wall="0.431" peakMem="213144"/>
+                <numfact cpu="1.3414" wall="0.367" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.4245" wall="0.441" peakMem="213144"/>
+                <numfact cpu="1.325" wall="0.35" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2513" wall="0.397" peakMem="213144"/>
+                <numfact cpu="1.3306" wall="0.349" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3468" wall="0.428" peakMem="213144"/>
+                <numfact cpu="1.521" wall="0.394" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3384" wall="0.419" peakMem="213144"/>
+                <numfact cpu="1.3195" wall="0.353" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2466" wall="0.393" peakMem="213144"/>
+                <numfact cpu="1.4212" wall="0.378" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2823" wall="0.419" peakMem="213144"/>
+                <numfact cpu="1.3521" wall="0.368" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2179" wall="0.39" peakMem="213144"/>
+                <numfact cpu="1.3367" wall="0.364" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3833" wall="0.421" peakMem="213144"/>
+                <numfact cpu="1.3724" wall="0.368" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3863" wall="0.427" peakMem="213144"/>
+                <numfact cpu="1.3571" wall="0.367" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3411" wall="0.414" peakMem="213144"/>
+                <numfact cpu="1.3693" wall="0.376" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.1489" wall="0.391" peakMem="213144"/>
+                <numfact cpu="1.403" wall="0.364" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.133" wall="0.379" peakMem="213144"/>
+                <numfact cpu="1.3631" wall="0.371" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3457" wall="0.411" peakMem="213144"/>
+                <numfact cpu="1.369" wall="0.364" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2565" wall="0.396" peakMem="213144"/>
+                <numfact cpu="1.4182" wall="0.38" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2458" wall="0.392" peakMem="213144"/>
+                <numfact cpu="1.3674" wall="0.363" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2563" wall="0.39" peakMem="213144"/>
+                <numfact cpu="1.3116" wall="0.367" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2002" wall="0.381" peakMem="213144"/>
+                <numfact cpu="1.3481" wall="0.358" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2104" wall="0.387" peakMem="213144"/>
+                <numfact cpu="1.385" wall="0.362" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2962" wall="0.406" peakMem="213144"/>
+                <numfact cpu="1.3836" wall="0.386" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2893" wall="0.401" peakMem="213144"/>
+                <numfact cpu="1.3389" wall="0.36" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3449" wall="0.41" peakMem="213144"/>
+                <numfact cpu="1.3034" wall="0.34" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2371" wall="0.403" peakMem="213144"/>
+                <numfact cpu="1.2923" wall="0.346" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2548" wall="0.395" peakMem="213144"/>
+                <numfact cpu="1.39" wall="0.367" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2292" wall="0.391" peakMem="213144"/>
+                <numfact cpu="1.4972" wall="0.404" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2581" wall="0.396" peakMem="213144"/>
+                <numfact cpu="1.2788" wall="0.343" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3119" wall="0.413" peakMem="213144"/>
+                <numfact cpu="1.4844" wall="0.387" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.1703" wall="0.386" peakMem="213144"/>
+                <numfact cpu="1.4888" wall="0.41" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3177" wall="0.414" peakMem="213144"/>
+                <numfact cpu="1.2444" wall="0.333" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2345" wall="0.397" peakMem="213144"/>
+                <numfact cpu="1.328" wall="0.348" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2185" wall="0.4" peakMem="213144"/>
+                <numfact cpu="1.338" wall="0.349" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.1912" wall="0.405" peakMem="213144"/>
+                <numfact cpu="1.3638" wall="0.368" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2619" wall="0.406" peakMem="213144"/>
+                <numfact cpu="1.3616" wall="0.362" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2401" wall="0.387" peakMem="213144"/>
+                <numfact cpu="1.3239" wall="0.352" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2815" wall="0.413" peakMem="213144"/>
+                <numfact cpu="1.3409" wall="0.353" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3212" wall="0.411" peakMem="213144"/>
+                <numfact cpu="1.3438" wall="0.353" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3123" wall="0.413" peakMem="213144"/>
+                <numfact cpu="1.4384" wall="0.387" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2688" wall="0.401" peakMem="213144"/>
+                <numfact cpu="1.3658" wall="0.364" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3363" wall="0.411" peakMem="213144"/>
+                <numfact cpu="1.3606" wall="0.367" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.4415" wall="0.442" peakMem="213144"/>
+                <numfact cpu="1.3019" wall="0.343" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2272" wall="0.406" peakMem="213144"/>
+                <numfact cpu="1.3795" wall="0.374" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3482" wall="0.439" peakMem="213144"/>
+                <numfact cpu="1.2728" wall="0.351" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.4622" wall="0.446" peakMem="213144"/>
+                <numfact cpu="1.4786" wall="0.381" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2037" wall="0.4" peakMem="213144"/>
+                <numfact cpu="1.3939" wall="0.368" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.3004" wall="0.418" peakMem="213144"/>
+                <numfact cpu="1.2901" wall="0.35" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
               <call number="1">
-                <numfact cpu="2.2586" wall="0.408" peakMem="213144"/>
+                <numfact cpu="1.3345" wall="0.361" peakMem="213144"/>
+                <symbfact peakMem="50457" permanentMem="45444"/>
+              </call>
+              <call number="1">
+                <numfact cpu="1.3842" wall="0.367" peakMem="213144"/>
+                <symbfact peakMem="50457" permanentMem="45444"/>
+              </call>
+              <call number="1">
+                <numfact cpu="1.268" wall="0.351" peakMem="213144"/>
+                <symbfact peakMem="50457" permanentMem="45444"/>
+              </call>
+              <call number="1">
+                <numfact cpu="1.4256" wall="0.386" peakMem="213144"/>
+                <symbfact peakMem="50457" permanentMem="45444"/>
+              </call>
+              <call number="1">
+                <numfact cpu="1.3005" wall="0.377" peakMem="213144"/>
+                <symbfact peakMem="50457" permanentMem="45444"/>
+              </call>
+              <call number="1">
+                <numfact cpu="1.2715" wall="0.343" peakMem="213144"/>
+                <symbfact peakMem="50457" permanentMem="45444"/>
+              </call>
+              <call number="1">
+                <numfact cpu="1.295" wall="0.361" peakMem="213144"/>
+                <symbfact peakMem="50457" permanentMem="45444"/>
+              </call>
+              <call number="1">
+                <numfact cpu="1.3715" wall="0.365" peakMem="213144"/>
+                <symbfact peakMem="50457" permanentMem="45444"/>
+              </call>
+              <call number="1">
+                <numfact cpu="1.4448" wall="0.387" peakMem="213144"/>
+                <symbfact peakMem="50457" permanentMem="45444"/>
+              </call>
+              <call number="1">
+                <numfact cpu="1.3617" wall="0.372" peakMem="213144"/>
+                <symbfact peakMem="50457" permanentMem="45444"/>
+              </call>
+              <call number="1">
+                <numfact cpu="1.346" wall="0.373" peakMem="213144"/>
                 <symbfact peakMem="50457" permanentMem="45444"/>
               </call>
             </process>
@@ -549,7 +589,7 @@
           <idPrecond>
             <summary>
               <precond_Id_setup>
-                <timer wall-clock="0s" wall="0" cpu="0.013641" calls="50" max_nesting="1"/>
+                <timer wall-clock="0s" wall="0" cpu="0.000487" calls="60" max_nesting="1"/>
               </precond_Id_setup>
               <precond_Id_run>
                 <timer wall-clock="0s" wall="0" cpu="0" calls="0" max_nesting="0"/>
@@ -562,13 +602,13 @@
         </process>
       </acoustic>
       <graph_setup>
-        <timer wall-clock="4.285s" wall="4.285" cpu="7.48603" calls="1" max_nesting="1" sub="true"/>
+        <timer wall-clock="2.683s" wall="2.683" cpu="3.26108" calls="1" max_nesting="1" sub="true"/>
       </graph_setup>
     </OLAS>
     <analysis>
       <summary>
         <assemble>
-          <timer wall-clock="2m 34.98s" wall="154.981" cpu="1236.89" calls="100" max_nesting="1"/>
+          <timer wall-clock="3m 16.94s" wall="196.936" cpu="1568.14" calls="120" max_nesting="1"/>
         </assemble>
       </summary>
     </analysis>

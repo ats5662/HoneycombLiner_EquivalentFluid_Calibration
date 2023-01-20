@@ -5,7 +5,7 @@ import scipy.interpolate
 from calcAbsorptionCoefficient import cac
 mic1 = "finalMaterialTestInputDeck-acouPressure-node-36002-mic1.hist"
 mic2 = "finalMaterialTestInputDeck-acouPressure-node-50364-mic2.hist"
-dfSim = cac(mic1, mic2, 50)
+dfSim = cac(mic1, mic2, 60)
 dfSim.to_csv("alphaVsFrequency_FINAL.csv", index=False)
 plt.rcParams["figure.figsize"] = (20,8)
 fig = plt.figure()
@@ -33,7 +33,7 @@ by_row_index_tpu = dfTestConcatTPU.groupby(dfTestConcatTPU.index)
 dfMeansTPU = by_row_index_tpu.mean().rename(columns={"Absorption_Coefficient": "Absorption_Coefficient_TPU"})
 dfMeansTPU = dfMeansTPU[["Frequency_Hz", "Absorption_Coefficient_TPU"]]
 pd.concat([dfMeansPLA.set_index('Frequency_Hz'),dfMeansTPU.set_index('Frequency_Hz')], axis=1, join='inner').to_csv("alphaVsFrequency_AvgNIT.csv", index=False)
-frequencyArray = np.linspace(377, 3400, 50)
+frequencyArray = np.linspace(377, 3400, 60)
 alphaSimInterpFunc = scipy.interpolate.interp1d(dfSim["f"], dfSim["alpha"])
 alphaSimValue = alphaSimInterpFunc(frequencyArray)
 alphaTestInterpFunc = scipy.interpolate.interp1d(dfMeansPLA["Frequency_Hz"], dfMeansPLA["Absorption_Coefficient_PLA"])
@@ -48,7 +48,7 @@ MAE = np.mean(np.abs(alpha_residuals))
 with open('MAE.txt', 'w') as f:
   f.write('%f' % MAE)
   f.close()
-RMSE = np.sqrt(np.mean(SSE))
+RMSE = np.sqrt(np.mean(alpha_residuals**2))
 with open('RMSE.txt', 'w') as f:
   f.write('%f' % RMSE)
   f.close()
