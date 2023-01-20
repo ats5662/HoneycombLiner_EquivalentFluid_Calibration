@@ -1,0 +1,105 @@
+
+=======================================================================
+ openCFS - Coupled Field Simulation
+
+ v. 22.11 - 'Welcome World' 010ce1
+ compiled Dec 15 2022 as Release (NOT distributable)
+
+ openCFS is using 1 OpenMP threads
+=======================================================================
+
+Simulation run started at 2023-Jan-17 01:51:06 on DESKTOP-TBHLNOT
+++ Reading parameter file '/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/iter2/workDirectory2/iteration.176/HexLiner_NIT_HarmonicAcousticSimulation2.xml'
+++ Creating hdf5 writer with ID 'hdf5'
+++ Creating text writer with ID 'txt'
+++ Reading mesh ... Initial scan of input file
+
+Number of node blocks found 1
+Number of element blocks found 1
+Number of cm blocks found 4
+Number of N commands found 1
+Number of ET commands found 1
+Finished scanning input file
+Processing node block 1
+
+nblock 1 (76646 nodes found in block)
+Finished reading nodes (76646 read)
+
+Element block 0 (401343 elements read)
+Finished reading elements (401343 read)
+Region name: element set 4
+Region element set 4 contains 3459 entries
+Region name: element set 3
+Region element set 3 contains 284748 entries
+Region name: element set 2
+Region element set 2 contains 16123 entries
+Region name: element set 1
+Region element set 1 contains 97012 entries
+"HexLinerMeshMeterTet4.cdb" Overall number of faces generated: 826289
+-> not regular
+++ Creating PDE 'acoustic' for analysis 'harmonic'
+
+acoustic: Harmonic step 1 ======================= 
+
+acoustic: Harmonic step 2 ======================= 
+
+acoustic: Harmonic step 3 ======================= 
+
+acoustic: Harmonic step 4 ======================= 
+
+acoustic: Harmonic step 5 ======================= 
+
+acoustic: Harmonic step 6 ======================= 
+
+acoustic: Harmonic step 7 ======================= 
+
+acoustic: Harmonic step 8 ======================= 
+
+acoustic: Harmonic step 9 ======================= 
+
+acoustic: Harmonic step 10 ======================= 
+
+acoustic: Harmonic step 11 ======================= 
+
+acoustic: Harmonic step 12 ======================= 
+
+acoustic: Harmonic step 13 ======================= 
+
+acoustic: Harmonic step 14 ======================= 
+
+acoustic: Harmonic step 15 ======================= 
+
+acoustic: Harmonic step 16 ======================= 
+
+acoustic: Harmonic step 17 ======================= 
+
+acoustic: Harmonic step 18 ======================= 
+
+acoustic: Harmonic step 19 ======================= 
+
+acoustic: Harmonic step 20 ======================= 
+
+acoustic: Harmonic step 21 ======================= 
+
+acoustic: Harmonic step 22 ======================= 
+
+acoustic: Harmonic step 23 ======================= 
+
+acoustic: Harmonic step 24 ======================= 
+
+acoustic: Harmonic step 25 ======================= 
+
+acoustic: Harmonic step 26 ======================= 
+
+acoustic: Harmonic step 27 ======================= 
+
+acoustic: Harmonic step 28 ======================= 
+
+acoustic: Harmonic step 29 ======================= 
+
+acoustic: Harmonic step 30 ======================= 
+
+++ Finished solving the problem at 2023-Jan-17 01:57:19
+
+>> Total wall-clock time: '6m 13s' cpu time: '6m 12.56s' at 2023-Jan-17 01:57:19
+
