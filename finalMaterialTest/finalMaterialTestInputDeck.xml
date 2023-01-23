@@ -33,7 +33,7 @@
 	<sequenceStep>
 		<analysis>
 			<harmonic>
-				<numFreq>60</numFreq>
+				<numFreq>150</numFreq>
 				<startFreq>377</startFreq>
 				<stopFreq>3400</stopFreq>
 				<sampling>linear</sampling>

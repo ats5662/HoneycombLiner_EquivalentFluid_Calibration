@@ -1,7 +1,8 @@
 #!/bin/sh
-cp ../HexLinerMeshMeterTet4.cdb .
+cp ../HexLinerMeshMeterTet4.7z .
+7z x HexLinerMeshMeterTet4.7z
 cp ../calcAbsorptionCoefficient.py .
-cfs -t8 -d finalMaterialTestInputDeck
+cfs -t4 -d finalMaterialTestInputDeck
 cp history/* .
 rm -rf history
 cp ../Hex_PLA_1_AllData.csv .
