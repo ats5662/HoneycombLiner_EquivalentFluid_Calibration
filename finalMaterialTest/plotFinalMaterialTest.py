@@ -34,9 +34,9 @@ dfMeansTPU = by_row_index_tpu.mean().rename(columns={"Absorption_Coefficient": "
 dfMeansTPU = dfMeansTPU[["Frequency_Hz", "Absorption_Coefficient_TPU"]]
 pd.concat([dfMeansPLA.set_index('Frequency_Hz'),dfMeansTPU.set_index('Frequency_Hz')], axis=1, join='inner').to_csv("alphaVsFrequency_AvgNIT.csv", index=False)
 frequencyArray = np.linspace(377, 3400, 150)
-alphaSimInterpFunc = scipy.interpolate.interp1d(dfSim["f"], dfSim["alpha"])
+alphaSimInterpFunc = scipy.interpolate.Akima1DInterpolator(dfSim["f"], dfSim["alpha"])
 alphaSimValue = alphaSimInterpFunc(frequencyArray)
-alphaTestInterpFunc = scipy.interpolate.interp1d(dfMeansPLA["Frequency_Hz"], dfMeansPLA["Absorption_Coefficient_PLA"])
+alphaTestInterpFunc = scipy.interpolate.Akima1DInterpolator(dfMeansPLA["Frequency_Hz"], dfMeansPLA["Absorption_Coefficient_PLA"])
 alphaTestValue = alphaTestInterpFunc(frequencyArray)
 alpha_residuals = alphaSimValue - alphaTestValue
 np.savetxt("residuals.txt", alpha_residuals, delimiter=" ", fmt="%f")

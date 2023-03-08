@@ -5,9 +5,7 @@ from calcAbsorptionCoefficient import cac
 
 mic1 = "HexLiner_NIT_HarmonicAcousticSimulation-acouPressure-node-36002-mic1.hist"
 mic2 = "HexLiner_NIT_HarmonicAcousticSimulation-acouPressure-node-50364-mic2.hist"
-#mic1 = "HexLiner_NIT_HarmonicAcousticSimulation-acouPressure-node-443033-mic1.hist"
-#mic2 = "HexLiner_NIT_HarmonicAcousticSimulation-acouPressure-node-288053-mic2.hist"
-fSamples = 16
+fSamples = 40
 dfSim = cac(mic1, mic2, fSamples)
 dfSim.to_csv("alphaVsFrequency.csv", index=False)
 
@@ -26,11 +24,11 @@ dfTestMeans = by_row_index.mean()
 frequencyArray = np.linspace(377, 3400, fSamples)
 
 #simulation
-alphaSimInterpFunc = scipy.interpolate.interp1d(dfSim["f"], dfSim["alpha"])
+alphaSimInterpFunc = scipy.interpolate.Akima1DInterpolator(dfSim["f"], dfSim["alpha"])
 alphaSimValue = alphaSimInterpFunc(frequencyArray)
 
 #test nit
-alphaTestInterpFunc = scipy.interpolate.interp1d(dfTestMeans["Frequency_Hz"], dfTestMeans["Absorption_Coefficient"])
+alphaTestInterpFunc = scipy.interpolate.Akima1DInterpolator(dfTestMeans["Frequency_Hz"], dfTestMeans["Absorption_Coefficient"])
 alphaTestValue = alphaTestInterpFunc(frequencyArray)
 
 alpha_residuals = alphaSimValue - alphaTestValue

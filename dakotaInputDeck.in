@@ -4,16 +4,16 @@ environment
 	
 method
   nl2sol
-  max_function_evaluations = 500
-  speculative
-      
+	max_function_evaluations = 250
+	convergence_tolerance = 1e-04
+    
 variables
   continuous_design = 8
-    descriptors     'x1'    'x2'    'x3'    'x4'     'x5'     'x6'     'x7'    'x8'
-    initial_point   -0.01   2       -0.25   3.5      1000     -5000    400     -3500 
-            	 
+    descriptors     'x1'    'x2'    'x3'    'x4'    'x5'    'x6'     'x7'    'x8'
+    initial_point   9.3156273491e-01 -4.8325419083e+00 1.2949511106e+00 -7.7193900418e+00 1.0214609574e+03 -5.5752005794e+03 8.4016704331e+02 -6.2747607643e+03
+ 
 interface
-  asynchronous evaluation_concurrency = 8
+  asynchronous evaluation_concurrency = 4
   fork
     analysis_driver = 'driver.sh'
       work_directory
@@ -36,6 +36,6 @@ interface
 	file_save
 	  
 responses
-  calibration_terms = 16
+  calibration_terms = 40
   numerical_gradients
   no_hessians

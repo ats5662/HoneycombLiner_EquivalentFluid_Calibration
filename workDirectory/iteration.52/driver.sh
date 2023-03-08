@@ -6,7 +6,7 @@ results=$2
 dprepro $parameters_file materialInputDeck.template Materials.xml
 dprepro $parameters_file harmonicAcousticSimInputDeck.template HexLiner_NIT_HarmonicAcousticSimulation.xml
 
-cfs -d HexLiner_NIT_HarmonicAcousticSimulation > HexLiner_NIT_HarmonicAcousticSimulation.log
+cfs -t2 -d HexLiner_NIT_HarmonicAcousticSimulation > HexLiner_NIT_HarmonicAcousticSimulation.log
 
 rm *.cdb
 rm -rf results_hdf5
@@ -22,5 +22,5 @@ rm Hex_TPU_1_AllData.csv
 rm Hex_TPU_2_AllData.csv
 rm Hex_TPU_3_AllData.csv
 
-residuals=$(head -n 16 residuals.txt | awk '{print $1}')
+residuals=$(head -n 40 residuals.txt | awk '{print $1}')
 echo "$residuals" > $results

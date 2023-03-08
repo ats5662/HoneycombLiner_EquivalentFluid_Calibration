@@ -9,12 +9,12 @@
 		<acoustic>
 			<density>
 				<linear>
-					<real>1.2</real>
+					<real>1.21</real>
 				</linear>
 			</density>
 			<densityComplex>
 				<linear>
-					<real>1.2</real>
+					<real>1.21</real>
 					<imag>0.0</imag>
 				</linear>
 			</densityComplex>
@@ -33,15 +33,15 @@
 	</material>
 		<material name='MPP'>
 		<acoustic>
-			<density>
+		<density>
 				<linear>
-					<real>1.2</real>
+					<real>1.21</real>
 				</linear>
 			</density>
 			<densityComplex>
 				<linear>
-					<real>9.3156273491e-01*log(f)+-4.8325419083e+00</real>
-					<imag>1.2949511106e+00*log(f)+-7.7193900418e+00</imag> 
+					<real>0.9416948129*log(f)+-4.905270627</real>
+					<imag>1.049362208*log(f)+-5.998462955</imag> 
 				</linear>
 			</densityComplex>
 			<compressionModulus>
@@ -51,8 +51,8 @@
 			</compressionModulus>
 			<compressionModulusComplex>
 				<linear>
-					<real>1.0214609574e+03*log(f)+-5.5752005794e+03</real>
-					<imag>8.4016704331e+02*log(f)+-6.2747607643e+03</imag>
+					<real>1006.809812*log(f)+-5407.014836</real>
+					<imag>805.2290774*log(f)+-6052.092838</imag>
 				</linear>
 			</compressionModulusComplex>
 		</acoustic>
