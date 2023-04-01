@@ -1,0 +1,9 @@
+*.txt eol=lf
+*.py eol=lf
+*.sh eol=lf
+*.template eol=lf
+*.in eol=lf
+*.dat eol=lf
+*.out eol=lf
+*.log eol=lf
+*.rst eol=lf

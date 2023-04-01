@@ -1,0 +1,161 @@
+
+=======================================================================
+ CFS++ - Coupled Field Simulation
+
+ v. 22.09 - 'Frohes Fensterln' 56797e7bc1ba33fd9312c903fc63155c312df203
+ compiled Oct  3 2022 as Release (distributable)
+ CFS++ routines use 1 threads for this run. OMP/ MKL threads: 1/ 1
+=======================================================================
+
+Simulation run started at 2023-Mar-30 18:52:13 on DESKTOP-TBHLNOT
+++ Reading parameter file '/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/workDirectory/iteration.1157/HexLiner_NIT_HarmonicAcousticSimulation.xml'
+++ Creating hdf5 writer with ID 'hdf5'
+++ Creating text writer with ID 'txt'
+++ Reading mesh ... Initial scan of input file
+
+Number of node blocks found 1
+Number of element blocks found 1
+Number of cm blocks found 3
+Number of N commands found 1
+Number of ET commands found 1
+Finished scanning input file
+Processing node block 1
+
+nblock 1 (46138 nodes found in block)
+Finished reading nodes (46138 read)
+
+Element block 0 (228115 elements read)
+Finished reading elements (228115 read)
+NodeGroup 1 contains 128 entries
+Region name: element set 2
+Region element set 2 contains 217943 entries
+Region name: element set 1
+Region element set 1 contains 10172 entries
+"HexLinerMeshMeterTet4.cdb" Overall number of faces generated: 473325
+-> not regular
+++ Creating PDE 'acoustic' for analysis 'harmonic'
+
+acoustic: Harmonic step 1 ======================= 
+
+acoustic: Harmonic step 2 ======================= 
+
+acoustic: Harmonic step 3 ======================= 
+
+acoustic: Harmonic step 4 ======================= 
+
+acoustic: Harmonic step 5 ======================= 
+
+acoustic: Harmonic step 6 ======================= 
+
+acoustic: Harmonic step 7 ======================= 
+
+acoustic: Harmonic step 8 ======================= 
+
+acoustic: Harmonic step 9 ======================= 
+
+acoustic: Harmonic step 10 ======================= 
+
+acoustic: Harmonic step 11 ======================= 
+
+acoustic: Harmonic step 12 ======================= 
+
+acoustic: Harmonic step 13 ======================= 
+
+acoustic: Harmonic step 14 ======================= 
+
+acoustic: Harmonic step 15 ======================= 
+
+acoustic: Harmonic step 16 ======================= 
+
+acoustic: Harmonic step 17 ======================= 
+
+acoustic: Harmonic step 18 ======================= 
+
+acoustic: Harmonic step 19 ======================= 
+
+acoustic: Harmonic step 20 ======================= 
+
+acoustic: Harmonic step 21 ======================= 
+
+acoustic: Harmonic step 22 ======================= 
+
+acoustic: Harmonic step 23 ======================= 
+
+acoustic: Harmonic step 24 ======================= 
+
+acoustic: Harmonic step 25 ======================= 
+
+acoustic: Harmonic step 26 ======================= 
+
+acoustic: Harmonic step 27 ======================= 
+
+acoustic: Harmonic step 28 ======================= 
+
+acoustic: Harmonic step 29 ======================= 
+
+acoustic: Harmonic step 30 ======================= 
+
+acoustic: Harmonic step 31 ======================= 
+
+acoustic: Harmonic step 32 ======================= 
+
+acoustic: Harmonic step 33 ======================= 
+
+acoustic: Harmonic step 34 ======================= 
+
+acoustic: Harmonic step 35 ======================= 
+
+acoustic: Harmonic step 36 ======================= 
+
+acoustic: Harmonic step 37 ======================= 
+
+acoustic: Harmonic step 38 ======================= 
+
+acoustic: Harmonic step 39 ======================= 
+
+acoustic: Harmonic step 40 ======================= 
+
+acoustic: Harmonic step 41 ======================= 
+
+acoustic: Harmonic step 42 ======================= 
+
+acoustic: Harmonic step 43 ======================= 
+
+acoustic: Harmonic step 44 ======================= 
+
+acoustic: Harmonic step 45 ======================= 
+
+acoustic: Harmonic step 46 ======================= 
+
+acoustic: Harmonic step 47 ======================= 
+
+acoustic: Harmonic step 48 ======================= 
+
+acoustic: Harmonic step 49 ======================= 
+
+acoustic: Harmonic step 50 ======================= 
+
+acoustic: Harmonic step 51 ======================= 
+
+acoustic: Harmonic step 52 ======================= 
+
+acoustic: Harmonic step 53 ======================= 
+
+acoustic: Harmonic step 54 ======================= 
+
+acoustic: Harmonic step 55 ======================= 
+
+acoustic: Harmonic step 56 ======================= 
+
+acoustic: Harmonic step 57 ======================= 
+
+acoustic: Harmonic step 58 ======================= 
+
+acoustic: Harmonic step 59 ======================= 
+
+acoustic: Harmonic step 60 ======================= 
+
+++ Finished solving the problem at 2023-Mar-30 18:58:31
+
+>> Total wall-clock time: '6m 17.58s' cpu time: '6m 16.71s' at 2023-Mar-30 18:58:31
+

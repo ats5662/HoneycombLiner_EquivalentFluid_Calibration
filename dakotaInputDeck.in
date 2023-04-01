@@ -1,0 +1,38 @@
+environment
+  tabular_data
+    tabular_data_file = 'results.dat'
+	
+method
+  nl2sol
+
+variables
+  continuous_design = 12
+    descriptors     'x1'    'x2'    'x3'    'x4'    'x5'    'x6'  'x7'   'x8'   'x9'   'x10'   'x11'   'x12'
+    initial_point   0.11    -10    1.933    0.0001    -41.08    1.23   0.0222   1.77   7.539   -1.46E-05   2.93   0.99
+interface
+  asynchronous evaluation_concurrency = 8
+  fork
+    analysis_driver = 'driver.sh'
+      work_directory
+        named 'workDirectory/iteration'
+      copy_files
+        'driver.sh'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/calcSimResults.py'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/calcAbsorptionCoefficient.py'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/materialInputDeck.template'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/harmonicAcousticSimInputDeck.template'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_PLA_1_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_PLA_2_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_PLA_3_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_TPU_1_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_TPU_2_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/Hex_TPU_3_AllData.csv'
+	'/home/ats5662/HoneycombLiner_EquivalentFluid_Calibration/HexLinerMeshMeterTet4.cdb'
+	directory_tag
+	directory_save
+	file_save
+	  
+responses
+  calibration_terms = 60
+  numerical_gradients
+  no_hessians

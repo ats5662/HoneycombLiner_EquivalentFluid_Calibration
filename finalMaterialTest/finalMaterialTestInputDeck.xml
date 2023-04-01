@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<cfsSimulation xmlns='http://www.cfs++.org/simulation'
+ xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+ xsi:schemaLocation='http://www.cfs++.org/simulation 
+ https://opencfs.gitlab.io/cfs/xml/CFS-Simulation/CFS.xsd'>
+
+	<fileFormats>
+		<input>
+			<cdb fileName='HexLinerMeshMeterTet4.cdb'/>
+		</input>
+		<output>
+			<hdf5 extension="cfs"/>
+			<text id='txt'/>
+		</output>
+		<materialData file='calibratedMaterial.xml' format='xml'/>
+	</fileFormats>
+	<domain geometryType='3d'>
+		<regionList>
+			<region name='element set 2' material='Air'/>
+			<region name='element set 1' material='MPP'/>
+		</regionList>
+		<nodeList>
+			<nodes name='mic1'>
+				<coord x='0' y='0' z='0.1365125'/>
+			</nodes>
+			<nodes name='mic2'>
+				<coord x='0' y='0' z='0.1740125'/>
+			</nodes>
+		</nodeList>
+	</domain>
+	<sequenceStep>
+		<analysis>
+			<harmonic>
+				<numFreq>150</numFreq>
+				<startFreq>377</startFreq>
+				<stopFreq>3400</stopFreq>
+				<sampling>linear</sampling>
+			</harmonic>
+		</analysis>
+		<pdeList>
+			<acoustic formulation='acouPressure'>
+				<regionList>
+					<region name='element set 2'/>
+					<region name='element set 1' complexFluid='yes'/>
+				</regionList>
+				<bcsAndLoads>
+					<pressure name='node set 1' value='63.2' />
+				</bcsAndLoads>
+				<storeResults>
+					<nodeResult type='acouPressure' complexFormat='realImag'>
+						<allRegions outputIds="hdf5"/>
+						<nodeList>
+							<nodes name='mic1' outputIds='txt'/>
+							<nodes name='mic2' outputIds='txt'/>
+						</nodeList>
+					</nodeResult>
+					<elemResult type='acouPressure' complexFormat='realImag'>
+						<allRegions outputIds="hdf5"/>
+					</elemResult>
+				</storeResults>
+			</acoustic>
+		</pdeList>
+	</sequenceStep>
+</cfsSimulation>
